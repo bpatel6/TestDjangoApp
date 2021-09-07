@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{%static 'assets/vendors/mdi/css/materialdesignicons.min.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/vendors/css/vendor.bundle.base.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/css/style.css'%}">
+<!--    <link rel="shortcut icon" href="assets/images/favicon.ico" />-->
+</head>
+<body>
+    {% block content %}{% endblock %}
+    <script src="{%static 'assets/vendors/js/vendor.bundle.base.js'%}"></script>
+    <script src="{%static 'assets/vendors/chart.js/Chart.min.js'%}"></script>
+    <script src="{%static 'assets/js/off-canvas.js'%}"></script>
+    <script src="{%static 'assets/js/hoverable-collapse.js'%}"></script>
+    <script src="{%static 'assets/js/misc.js'%}"></script>
+    <script src="{%static 'assets/js/dashboard.js'%}"></script>
+    <script src="{%static 'assets/js/todolist.js'%}"></script>
+</body>
+</html>

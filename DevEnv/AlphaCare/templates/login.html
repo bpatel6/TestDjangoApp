@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex align-items-center auth">
+            <div class="row flex-grow">
+                <div class="col-lg-4 mx-auto">
+                    <div class="auth-form-light text-left p-5">
+                        <div>
+                            <img src="{%static 'assets/images/logo.svg'%}">
+                        </div>
+                        <h4>Hello! let's get started</h4>
+                        <h6 class="font-weight-light">Sign in to continue.</h6>
+                        <form class="pt-3" method="POST">
+                            {% csrf_token %}
+                            {% for field in form %}
+                            <div class="form-group">
+                                <input type="{{ field.widget_type }}" class="form-control form-control-lg"
+                                       id="{{ field.id_for_label }}"
+                                       placeholder="{{ field.label }}"
+                                       name="{{ field.html_name }}" required>
+                                {% for error in field.errors %}
+                                <small class="text-danger">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                            {% endfor %}
+                            {% if messages %}
+                                {% for message in messages %}
+                                    {% if message.tags %}
+                                        <small class="text-danger">{{ message }}</small>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                            <div class="mt-3">
+                                <button class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn"
+                                        type="submit">SIGN IN
+                                </button>
+                            </div>
+                            <div class="my-2 d-flex justify-content-between align-items-center">
+                                <a href="/password_reset" class="auth-link text-black">Forgot password?</a>
+                            </div>
+                            <div class="text-center mt-4 font-weight-light"> Don't have an account? <a href="/signup"
+                                                                                                       class="text-primary">Sign
+                                up</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
